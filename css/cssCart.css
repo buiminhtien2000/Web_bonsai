@@ -1,0 +1,147 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-size: 18px;
+	color: black;
+}
+.container-fluid{
+	background-color:#f8f5ed; 
+}
+.backg-white{
+	background-color: white;
+}
+.header{
+	height: 30px;
+	background-color: #7da918;
+}
+.header ul li a{
+ text-decoration: none;
+ color: white;
+ margin: 0 5px;
+}
+.menus-header{
+	display: none;
+}
+.logo{
+	border-bottom: 3px solid black;
+	line-height: 50%;
+	display: none;
+}
+.logo img{
+	width:125px;
+	height: 80px;
+}
+.logo .picture-user{
+	margin-top:1%;
+	line-height: 50px;
+}
+.logo .picture-user p{
+	color: black;
+}
+.logo .picture-user img{
+	width: 80px;
+    height: 50px;
+    vertical-align:middle;
+}
+/*--------------------------list product---------------------*/
+.hidden-value,.back-page{
+	display: none;
+}
+.row-align{
+	padding: 3px;
+	border-top: 2px solid #eeeeee;
+	line-height: 100%;
+}
+.list-cart .row-align img{
+	width:150px;
+	height:100px;
+	margin-right: 5px;
+}
+
+.list-cart .row-align p{
+	color: black;
+}
+.button-smail{
+	width:35px;
+	height: 30px;
+	color: black;
+	border:solid 1px gray;
+}
+.input-smail{
+	height: 30px;
+	width: 50px;
+	color: black;
+	text-align: center;
+}
+.button-medium{
+	width: 100px;
+    background-color: #7da918;
+    border: solid 1px gray;
+    color: white;
+    height: 30px;
+}
+.fa-arrow-left{
+	color: white;
+}
+@media screen and (max-width:1133px){
+.list-cart .row-align img{
+	width: 100px;
+    height: 90px;
+    margin-right: 5px;
+}
+.row-align .col-sm-1,.col-sm-2{
+	width: 25%;
+}
+.form-pay{
+	position: -webkit-sticky;
+  	position: sticky;
+}
+.form-pay input[type='text']{
+	width:60%;
+}
+}
+@media screen and (max-width:992px){
+.button-smail{
+	width: 25px;
+    height: 30px;
+}
+.input-smail{
+	height: 30px;
+    width: 30px;
+}
+}
+@media screen and (min-width: 577px){
+.col-md-2,.col-md-3{
+	margin: 0;
+	padding:0;
+	text-align: center;
+}
+}
+@media screen and (max-width:767px){
+.col-sm-5{
+	margin-left:5px;
+	text-align: left;
+	width: 50%;
+}
+.form-pay input[type='text']{
+	width:70%;
+}
+.back-page{
+	display: block;
+}
+.back-page a{
+	color: white;
+	text-decoration:none;
+}
+}
+/*-------------------------footer----------------------------*/
+.footer{
+	margin-top: 15px;
+	background-color: white;
+	border-top: 4px solid #7da918; 
+}
+.footer p{
+	color: black;
+	margin:5px 0;
+	font-size: 15px;
+}

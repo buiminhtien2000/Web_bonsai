@@ -80,12 +80,13 @@
 	position: relative;
 }
 
-.header__navbar-user-menu > li.active {
-	background-color: #f6f6f6;
+.header__navbar-user-menu > li:active {
+	color: #14643f;
 }
 .header__navbar-user-menu > li:hover, .header__navbar-user-menu > li > a:hover {
-	background-color: #f6f6f6;
-	font-size: larger;
+	background-color: #85FFBD;
+	color: rgb(24, 8, 129);
+	font-size: 16px;
 }
 .header__navbar-user-menu > li > a {
 padding: 3px 3px;
@@ -104,20 +105,18 @@ padding-right: 5px;
 .header__navbar-user-name{
 	margin-left: 4px;
 	font-weight: 400;
-	font-size: 1.4rem;
-	color: var(--white-color);
 }
 
 .header__navbar-user-menu{
 	position: absolute;
 	top: 100%;
 	right: 0;
-	background: #85FFBD;
+	background: #f6feee;
 	border-radius: 2px;
 	width: 160px;
 	list-style: none;
 	z-index: 1;
-	box-shadow: 0 1px 2px #e0e0e0;
+	box-shadow: 0 1px 2px #3b2c2c;
 	display: none;
 	z-index: 1;
 }
@@ -148,7 +147,7 @@ padding-right: 5px;
 .header__qr{
 	width: 150px;
 	border-radius: 2px;
-	background: var(--white-color);
+	background-color: aliceblue;
 	padding: 8px;
 	position: absolute;
 	left: 0;
@@ -166,7 +165,7 @@ padding-right: 5px;
 
 .header__qr-apps{
 	display: flex;
-	justify-content: space-between;
+	margin: 0;
 }
 
 .header__qr-link:first-child{
@@ -195,19 +194,11 @@ padding-right: 5px;
 	display: inline-block;
 }
 
-.header__navbar-icon-link{
-	text-decoration: none;
-}
 
-.header__navbar-icon-link:nth-child(2){
-	margin-left: 3px;
-}
-
-.header__navbar-item > a:hover, .header__navbar-user:hover{
+.ht-menu, .header__navbar-item  > a:hover, .header__navbar-user:hover{
 	cursor: pointer;
-	color:orangered;
+	color:rgb(51, 16, 3);
 }
-.header__navbar-item-link:hover,
 .header__navbar-icon:hover{
 	cursor: pointer;
 	color:white;
@@ -234,11 +225,6 @@ padding-right: 5px;
 	text-decoration: none;
 	font-size: 1.6rem;
 	margin: 0 4px;
-}
-
-.header__navbar-item-no-pointer{
-	color: var(--white-color);
-	cursor: text;
 }
 
 .header__qr-download-img{
@@ -695,8 +681,8 @@ padding-right: 5px;
 
 .header__search-option-item:hover{
 	cursor: pointer;
-	background: #85FFBD;
-	font-weight: bolder; font-size: larger;
+	background: #f6faee;
+	font-weight: bolder; font-size: 16px;
 }
 
 .header__search-option-item span{
@@ -715,123 +701,6 @@ padding-right: 5px;
 	display: inline-block;
 }
 
-
-/*lịch sử tìm kiếm*/
-.header__search-history{
-	position: absolute;
-	top: calc(100% + 2px);
-	left: 0;
-	width: calc(100% - 16px);
-	background: var(--white-color);
-	border-radius: 2px;
-	box-shadow: 0 1px 5px rgb(189,189,189);
-	display: none;
-	overflow: hidden;
-	z-index: 2;
-
-}
-
-.header__search-history-heading{
-	margin: 6px 12px;
-	font-size: 1.4rem;
-	color: #999;
-	font-weight: 400;
-}
-
-.header__search-history-list{
-	list-style: none;
-}
-
-.header__search-history-item{
-	height: 38px;
-	padding: 0 12px;
-}
-
-.header__search-history-item:hover{
-	background: #fafafa;
-}
-
-.header__search-history-item a{
-	text-decoration: none;
-	color: var(--text-color);
-	font-size: 1.3rem;
-	line-height: 38px;
-	display: block;
-}
-
-
-.home-filter{
-	display: flex;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.04);
-	padding: 0 22px;
-	border-radius: 2px;
-}
-
-.home-filter__label{
-	font-size: 1.4rem;
-	color: #555;
-	margin: 16px;
-}
-
-.home-filter__btn{
-	min-width: 90px;
-	margin-right: 12px;
-}
-
-.home-filter__page{
-	display: flex;
-	align-items: center;
-	margin-left: auto;
-}
-
-
-.home-filter__page-num{
-	font-size: 1.5rem;
-	color: var(--text-color);
-	margin-right: 22px;
-}
-
-.home-filter__page-current{
-	color: var(--primary-color);
-}
-.home-filter__page-total{
-
-}
-
-.home-filter__page-control{
-	border-radius: 2px;
-	overflow: hidden;
-	background: var(--white-color);
-	display: flex;
-	width: 72px;
-	height: 36px;
-}
-
-.home-filter__page-btn{
-	flex: 1;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-decoration: none;
-
-}
-.home-filter__page-btn:first-child{
-	border-right:1px solid #eee;
-}
-
-.home-filter__page-btn--disable{
-	background: #f9f9f9;
-}
-
-.home-filter__page-btn--disable .home-filter__page-icon{
-	color: #ccc;
-	cursor: default;
-}
-.home-filter__page-icon{
-	font-size: 1.4rem;
-	color: #555;
-}
 
 /*footer*/
 .footer-2{

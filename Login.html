@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="logins" ng-controller="AppCtrl">
+
+<head>
+  <link rel="stylesheet" href="css/css.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng Nhập</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+  <script src="js/js.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="form-login">
+      <div class="logo">
+        <img width="180px" height="180px" src="image/Logo.png">
+      </div>
+      <h2 class="text-center">Đăng Nhập</h2>
+      <form ng-controller="login" name="loginForm">
+        <div class="form-group">
+          <input type="text" ng-model="email" class="form-control" placeholder="Email/Số điện thoại/Tên đăng nhập">
+        </div>
+        <div class="form-group">
+          <input type="password" ng-model="password" class="form-control" placeholder="Mật Khẩu">
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input">
+          <label>
+            Nhớ mật Khẩu
+          </label>
+        </div>
+        <div class="form-group">
+          <input type="submit" ng-click="login()" value="Đăng Nhập">
+        </div>
+        <div class="form-group">
+          <button>Thoát</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery.js"></script>
+</body>
+</html>

@@ -20,12 +20,78 @@
     <link rel="stylesheet" href="css/bling.css">
     <link rel="stylesheet" href="css/responsive.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-
+	<link rel="stylesheet" href="css/csslogin.css">
+	<script src="js/showForm.js"></script>
     <link rel="stylesheet" href="css/header.css">
 
 </head>
 
 <body>
+<!---------FormLogin------>
+        <div class="col-12 col-md-8 col-lg-6 m-auto custom-form" id="customform">
+            <!-- <div class="col text-center mb-2">
+                <img src="image/logo.png" />
+            </div> -->
+            <ul class="nav nav-tabs col m-auto" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#login">Đăng Nhập</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#register">Đăng Ký</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content col custom-tabcontent">
+                <div id="login" class="container tab-pane active "><br>
+                    <form action="">
+                        <div class="col mt-3">
+                            <input type="text" placeholder="Tài Khoản" class="form-control" id="username" />
+                        </div>
+                        <div class="col mt-3">
+                            <input type="password" placeholder="Mật Khẩu" class="form-control" id="password" />
+                        </div>
+                        <div class="col mt-2">
+                            <input type="submit" value="Đăng Nhập" class="mt-2 form-control" />
+                            <input type="button" onclick="hiddenForm()" value="Thoát" class="mt-2 mb-2 form-control" />
+                        </div>
+                        <div class="col mt-2">
+                            <a href="#">Quên Mật Khẩu?</a>
+                        </div>
+                    </form>
+                </div>
+                <div id="register" class="container tab-pane"><br>
+                    <form action="">
+                        <div class="col mt-3">
+                            <input type="text" placeholder="Họ và Tên" class="form-control" />
+                        </div>
+                        <div class="col mt-3">
+                            <input type="text" placeholder="Tên Đăng Nhập" class="form-control" />
+                        </div>
+                        <div class="col mt-3">
+                            <input type="password" placeholder="Mật Khẩu" class="form-control" />
+                        </div>
+                        <div class="col mt-3">
+                            <input type="password" placeholder="Nhập Lại Khẩu" class="form-control">
+                        </div>
+                        <div class="col mt-3">
+                            <input type="date" id="birthday" placeholder="Nhập Lại" class="form-control" />
+                        </div>
+                        <div class="col mt-3">
+                            <input type="email" id="email" placeholder="Email" class="form-control" />
+                        </div>
+                        <div class="col mt-2">
+                            <input type="submit" value="Đăng Ký" class="mt-2 form-control" />
+                            <input type="button" onclick="hiddenForm()" value="Thoát" class="mt-2 mb-2 form-control" />
+                        </div>
+                        <div class="col mt-2">
+                            <a href="#">Quên Mật Khẩu?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!---------end------>
 
     <div class="body-wrapper">
         <header>
@@ -75,8 +141,8 @@
                                     </a>
                                 </li>
                                 <li class="header__navbar-item">
-                                    <a href="#" class="header__navbar-item-link">
-                                        <i class="fas fa-user"></i>
+                                   <a onclick="showForm()" class="header__navbar-item-link">
+                                        <i class="fas fa-user-circle"></i>
                                         Đăng nhập
                                     </a>
                                 </li>
@@ -866,6 +932,7 @@
     <script src="js/venobox.min.js"></script>
     <script src="js/scrollUp.min.js"></script>
     <script src="js/main.js"></script>
+	<script src="js/myLogin.js"></script>
 </body>
 
 

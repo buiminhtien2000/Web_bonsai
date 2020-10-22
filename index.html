@@ -17,81 +17,85 @@
     <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bling.css">
     <link rel="stylesheet" href="css/responsive.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-	<link rel="stylesheet" href="css/csslogin.css">
-	<script src="js/showForm.js"></script>
+    <link rel="stylesheet" href="css/csslogin.css">
+    <script src="js/showForm.js"></script>
     <link rel="stylesheet" href="css/header.css">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/cssCart.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="js/userJS/userApp.js"></script>
 </head>
 
-<body>
-<!---------FormLogin------>
-        <div class="col-12 col-md-8 col-lg-6 m-auto custom-form" id="customform">
-            <!-- <div class="col text-center mb-2">
+<body ng-app="userApp">
+    <!---------FormLogin------>
+    <div class="col-12 col-md-8 col-lg-6 m-auto custom-form" id="customform">
+        <!-- <div class="col text-center mb-2">
                 <img src="image/logo.png" />
             </div> -->
-            <ul class="nav nav-tabs col m-auto" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#login">Đăng Nhập</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#register">Đăng Ký</a>
-                </li>
-            </ul>
+        <ul class="nav nav-tabs col m-auto" role="tablist">
+            <li class="nav-item" z>
+                <a class="nav-link active" data-toggle="tab" href="#login">Đăng Nhập</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#register">Đăng Ký</a>
+            </li>
+        </ul>
 
-            <!-- Tab panes -->
-            <div class="tab-content col custom-tabcontent">
-                <div id="login" class="container tab-pane active "><br>
-                    <form action="">
-                        <div class="col mt-3">
-                            <input type="text" placeholder="Tài Khoản" class="form-control" id="username" />
-                        </div>
-                        <div class="col mt-3">
-                            <input type="password" placeholder="Mật Khẩu" class="form-control" id="password" />
-                        </div>
-                        <div class="col mt-2">
-                            <input type="submit" value="Đăng Nhập" class="mt-2 form-control" />
-                            <input type="button" onclick="hiddenForm()" value="Thoát" class="mt-2 mb-2 form-control" />
-                        </div>
-                        <div class="col mt-2">
-                            <a href="#">Quên Mật Khẩu?</a>
-                        </div>
-                    </form>
-                </div>
-                <div id="register" class="container tab-pane"><br>
-                    <form action="">
-                        <div class="col mt-3">
-                            <input type="text" placeholder="Họ và Tên" class="form-control" />
-                        </div>
-                        <div class="col mt-3">
-                            <input type="text" placeholder="Tên Đăng Nhập" class="form-control" />
-                        </div>
-                        <div class="col mt-3">
-                            <input type="password" placeholder="Mật Khẩu" class="form-control" />
-                        </div>
-                        <div class="col mt-3">
-                            <input type="password" placeholder="Nhập Lại Khẩu" class="form-control">
-                        </div>
-                        <div class="col mt-3">
-                            <input type="date" id="birthday" placeholder="Nhập Lại" class="form-control" />
-                        </div>
-                        <div class="col mt-3">
-                            <input type="email" id="email" placeholder="Email" class="form-control" />
-                        </div>
-                        <div class="col mt-2">
-                            <input type="submit" value="Đăng Ký" class="mt-2 form-control" />
-                            <input type="button" onclick="hiddenForm()" value="Thoát" class="mt-2 mb-2 form-control" />
-                        </div>
-                        <div class="col mt-2">
-                            <a href="#">Quên Mật Khẩu?</a>
-                        </div>
-                    </form>
-                </div>
+        <!-- Tab panes -->
+        <div class="tab-content col custom-tabcontent">
+            <div id="login" class="container tab-pane active "><br>
+                <form ng-submit="checkUser()">
+                    <div class="col mt-3">
+                        <input type="text" placeholder="Tài Khoản" class="form-control" ng-model="form.account" />
+                    </div>
+                    <div class="col mt-3">
+                        <input type="password" placeholder="Mật Khẩu" class="form-control" ng-model="form.password" />
+                    </div>
+                    <div class="col mt-2">
+                        <input type="submit" value="Đăng Nhập" class="mt-2 form-control" />
+                        <input type="button" onclick="hiddenForm()" value="Thoát" class="mt-2 mb-2 form-control" />
+                    </div>
+                    <div class="col mt-2">
+                        <a href="#">Quên Mật Khẩu?</a>
+                    </div>
+                </form>
+            </div>
+            <div id="register" class="container tab-pane"><br>
+                <form action="">
+                    <div class="col mt-3">
+                        <input type="text" placeholder="Họ và Tên" class="form-control" />
+                    </div>
+                    <div class="col mt-3">
+                        <input type="text" placeholder="Tên Đăng Nhập" class="form-control" />
+                    </div>
+                    <div class="col mt-3">
+                        <input type="password" placeholder="Mật Khẩu" class="form-control" />
+                    </div>
+                    <div class="col mt-3">
+                        <input type="password" placeholder="Nhập Lại Khẩu" class="form-control">
+                    </div>
+                    <div class="col mt-3">
+                        <input type="date" id="birthday" placeholder="Nhập Lại" class="form-control" />
+                    </div>
+                    <div class="col mt-3">
+                        <input type="email" id="email" placeholder="Email" class="form-control" />
+                    </div>
+                    <div class="col mt-2">
+                        <input type="submit" value="Đăng Ký" class="mt-2 form-control" />
+                        <input type="button" onclick="hiddenForm()" value="Thoát" class="mt-2 mb-2 form-control" />
+                    </div>
+                    <div class="col mt-2">
+                        <a href="#">Quên Mật Khẩu?</a>
+                    </div>
+                </form>
             </div>
         </div>
-        <!---------end------>
+    </div>
+    <!---------end------>
 
     <div class="body-wrapper">
         <header>
@@ -141,7 +145,7 @@
                                     </a>
                                 </li>
                                 <li class="header__navbar-item">
-                                   <a onclick="showForm()" class="header__navbar-item-link">
+                                    <a onclick="showForm()" class="header__navbar-item-link">
                                         <i class="fas fa-user-circle"></i>
                                         Đăng nhập
                                     </a>
@@ -265,10 +269,8 @@
                     </div>
                 </div>
             </div>
-
         </header>
     </div>
-
     <div class="slider-with-banner">
         <div class="container">
             <div class="row">
@@ -332,426 +334,9 @@
             </div>
         </div>
     </div>
-    <!-- Begin Product Area -->
-    <div class="product-area pt-60 pb-100">
-        <div class="container">
-            <!-- <div class="row">
-                    <div class="col-lg-12">
-                        <div class="li-product-tab">
-                            <ul class="nav li-product-menu">
-                                Arrival</span></a></li>
-                                <li><a data-toggle="tab" href="#"><span>Bestseller</span></a></li>
-                                <li><a data-toggle="tab" href="#"><span>Featured Products</span></a>
-                                </li>
-                            </ul>
-                            <br><br>
-                        </div>
-                    </div>
-                </div> -->
-
-            <div class="li-section-title">
-                <h2>
-                    <span>New Arival</span>
-                </h2>
-            </div>
-            <div class="tab-content">
-                <div id="li-new-product" class="tab-pane active show" role="tabpanel">
-                    <div class="row">
-                        <div class="product-active owl-carousel">
-                            <div class="col-lg-12">
-                                <div class="single-product-wrap">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img src="images/Shopee/Ảnh update t5/cat_6.jpg" alt="">
-                                        </a>
-                                        <span class="sticker">New</span>
-                                    </div>
-                                    <div class="product_desc">
-                                        <div class="product_desc_info">
-                                            <div class="product-review">
-                                                <h5 class="manufacturer">
-                                                    <a href=""><img src="images/ic_Freeship.png" width="20%"></a>
-                                                </h5>
-                                                <div class="rating-box">
-                                                    <ul class="rating">
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li class="no-star"><i class="fa fa-star"></i></li>
-                                                        <li class="no-star"><i class="fa fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <h4><a class="product_name" href="single-product.html">Sen đáa</a></h4>
-                                            <div class="price-box">
-                                                <span class="new-price">$46.80</span>
-                                            </div>
-                                        </div>
-                                        <div class="add-actions">
-                                            <ul class="add-actions-link">
-                                                <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                <li><a class="links-details" href="wishlist.html"><i
-                                                            class="fa fa-heart"></i></a></li>
-                                                <li><a href="#" title="quick view" class="quick-view-btn"
-                                                        data-toggle="modal" data-target="#exampleModalCenter"><i
-                                                            class="fa fa-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="single-product-wrap">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img src="images/Shopee/Ảnh update t5/bapcaitim.jpeg"
-                                                alt="Li's Product Image">
-                                        </a>
-                                        <span class="sticker">New</span>
-                                    </div>
-                                    <div class="product_desc">
-                                        <div class="product_desc_info">
-                                            <div class="product-review">
-                                                <h5 class="manufacturer">
-                                                    <a href=""><img src="images/ic_Freeship.png" width="20%"></a>
-                                                </h5>
-                                                <div class="rating-box">
-                                                    <ul class="rating">
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li><i class="fa fa-star"></i></li>
-                                                        <li class="no-star"><i class="fa fa-star"></i></li>
-                                                        <li class="no-star"><i class="fa fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <h4><a class="product_name" href="single-product.html">Chậu</a></h4>
-                                            <div class="price-box">
-                                                <span class="new-price new-price-2">$71.80</span>
-                                                <span class="old-price">$77.22</span>
-                                                <span class="discount-percentage">-7%</span>
-                                            </div>
-                                        </div>
-                                        <div class="add-actions">
-                                            <ul class="add-actions-link">
-                                                <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                <li><a class="links-details" href="#"><i class="fa fa-heart "></i></a>
-                                                </li>
-                                                <li><a href="#" title="quick view" class="quick-view-btn"
-                                                        data-toggle="modal" data-target="#exampleModalCenter"><i
-                                                            class="fa fa-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div ng-view>
     </div>
-    <!-- Product Area End Here -->
-
-    <!-- Begin Li's Static Banner Area -->
-    <div class="li-static-banner" style="margin-top: 100px;">
-        <div class="container">
-            <div class="row">
-                <div class=" col-md-4 col-sm-12 col-lg-4">
-                    <div class="col-inner">
-                        <table style="height: 30px; width: 337px;">
-                            <tbody>
-                                <tr style="height: 100px;">
-                                    <td style="width: 78px; height: 100px;">
-                                        <img src="images/free-shipping-icon-5.jpg" width="100%" alt="">
-                                    </td>
-                                    <td style="width: 257px; height: 100px;"><span
-                                            style="font-size: 100%; font-family: 'times new roman', times, serif;"><strong>
-                                                <h4 style="color: #e14d43;">MIỄN PHÍ VẬN CHUYỂN</h4>
-                                            </strong></span>
-                                        <p></p>
-                                        <p><span style="font-family: 'times new roman', times, serif; font-size: 115%;">Chúng
-                                                tôi vận chuyển miễn phí với đơn hàng trị giá trên 1000.000 đ</span></p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p>&nbsp;</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12 col-lg-4">
-                    <div class="col-inner">
-                        <table style="height: 30px; width: 337px;">
-                            <tbody>
-                                <tr style="height: 100px;">
-                                    <td style="width: 78px; height: 100px;">
-                                        <img src="images/unnamed.jpg" width="100%" alt="">
-                                    </td>
-                                    <td style="width: 257px; height: 100px;"><span
-                                            style="font-size: 100%; font-family: 'times new roman', times, serif;"><strong>
-                                                <h4 style="color: #e14d43;">HỖ TRỢ ONLINE 24/24</h4>
-                                            </strong></span>
-                                        <p></p>
-                                        <p><span style="font-family: 'times new roman', times, serif;"><span
-                                                    style="font-size: 16.56px;">Đội tư vấn của chúng tôi sẵn sàng giúp
-                                                    đỡ khi bạn gặp khó khăn</span></span></p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p>&nbsp;</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12 col-lg-4">
-                    <div class="col-inner">
-                        <table style="height: 30px; width: 337px;">
-                            <tbody>
-                                <tr style="height: 100px;">
-                                    <td style="width: 78px; height: 100px;">
-                                        <img src="images/02c16cebc10ec5655f3eb8cce0359909.jpg" width="100%" alt="">
-                                    </td>
-                                    <td style="width: 257px; height: 100px;"><span style="font-size: 100%;"><span
-                                                style="color: #e14d43; font-family: 'times new roman', times, serif;"><b>
-                                                    <h4>QUÀ
-                                                        TẶNG CUỐI TUẦN</h4>
-                                                </b></span></span>
-                                        <p></p>
-                                        <p><span style="font-family: 'times new roman', times, serif;"><span
-                                                    style="font-size: 16.56px;">Khuyến mãi lớn, rinh quà tặng với mỗi
-                                                    thứ 7, CN hàng tuần.</span></span></p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p>&nbsp;</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Best seller-->
-    <section class="product-area li-laptop-product li-trendding-products best-sellers pb-45">
-        <div class="container">
-            <div class="row">
-                <!-- Begin Li's Section Area -->
-                <div class="col-lg-12">
-                    <div class="li-section-title">
-                        <h2>
-                            <span>Bestsellers</span>
-                        </h2>
-                    </div>
-                    <div class="row">
-                        <div class="product-active owl-carousel">
-                            <!-- single pro -->
-                            <div class="col-lg-12">
-                                <div class="single-product-wrap">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img src="images/Shopee/12.jpg" alt="Li's Product Image">
-                                        </a>
-                                        <span class="sticker">Hot</span>
-                                    </div>
-                                    <div class="product_desc">
-                                        <div class="product_desc_info">
-                                            <div class="product-review">
-                                                <div class="rating-box">
-                                                    <ul class="rating">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li class="no-star"><i class="fa fa-star"></i></li>
-                                                        <li class="no-star"><i class="fa fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <h4><a class="product_name" href="single-product.html">Sen đá</a></h4>
-                                            <div class="price-box">
-                                                <span class="new-price">$46.80</span>
-                                            </div>
-                                        </div>
-                                        <div class="add-actions">
-                                            <ul class="add-actions-link">
-                                                <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                <li><a class="links-details" href=""><i class="fas fa-heart"></i></a>
-                                                </li>
-                                                <li><a href="#" title="quick view" class="quick-view-btn"
-                                                        data-toggle="modal" data-target="#exampleModalCenter"><i
-                                                            class="fa fa-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- single-product-wrap end -->
-                            </div>
-                            <div class="col-lg-12">
-                                <!-- single-product-wrap start -->
-                                <div class="single-product-wrap">
-                                    <div class="product-image">
-                                        <a href="single-product.html">
-                                            <img src="images/Shopee/15.jpg" alt="Li's Product Image">
-                                        </a>
-                                        <span class="sticker">Sale</span>
-                                    </div>
-                                    <div class="product_desc">
-                                        <div class="product_desc_info">
-                                            <div class="product-review">
-                                                <div class="rating-box">
-                                                    <ul class="rating">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li class="no-star"><i class="fa fa-star"></i></li>
-                                                        <li class="no-star"><i class="fa fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <h4><a class="product_name" href="single-product.html">Chậu sứ</a></h4>
-                                            <div class="price-box">
-                                                <span class="new-price new-price-2">$71.80</span>
-                                                <span class="old-price">$77.22</span>
-                                                <span class="discount-percentage">-7%</span>
-                                            </div>
-                                        </div>
-                                        <div class="add-actions">
-                                            <ul class="add-actions-link">
-                                                <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                                <li><a class="links-details" href=""><i class="fas fa-heart"></i></a>
-                                                </li>
-                                                <li><a href="#" title="quick view" class="quick-view-btn"
-                                                        data-toggle="modal" data-target="#exampleModalCenter"><i
-                                                            class="fa fa-eye"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- single-product-wrap end -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- All products -->
-    <div class="container" style="margin-top: 100px;">
-        <div class="row">
-            <aside class="col-md-3 col-sm-12 col-lg-3">
-                <div class="col-inner" >
-                    <div class="card mt-2 ">
-                        <strong style="text-align: center;" >
-                            <i class="fas fa-list"></i> Tất cả sản phẩm</strong>
-                    </div>
-                    <div class="list-group">
-                        <div >
-                            <a href="#" id="list-item" class="list-group-item" >Sen đá</a>  
-                            <a href="#" id="list-item" class="list-group-item" >Sen đá</a>  
-                            <a href="#" id="list-item" class="list-group-item" >Sen đá</a>  
-                            <a href="#" id="list-item" class="list-group-item" >Sen đá</a>  
-                            <a href="#" id="list-item" class="list-group-item" >Sen đá</a>  
-                            <a href="#" id="list-item" class="list-group-item" >Sen đá</a>                        
-                        </div>
-                    </div>  
-                </div>
-            </aside> 
-            <article class="col-md-9 col-sm-12 col-lg-9">
-                    <div class="product-area product-active owl-carousel">
-                        <!-- single pro -->
-                        <div class="col-lg-12">
-                            <div class="single-product-wrap">
-                                <div class="product-image">
-                                    <a href="single-product.html">
-                                        <img src="images/Shopee/12.jpg" alt="Li's Product Image">
-                                    </a>
-                                    <span class="sticker">Hot</span>
-                                </div>
-                                <div class="product_desc">
-                                    <div class="product_desc_info">
-                                        <div class="product-review">
-                                            <div class="rating-box">
-                                                <ul class="rating">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li class="no-star"><i class="fa fa-star"></i></li>
-                                                    <li class="no-star"><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <h4><a class="product_name" href="single-product.html">Sen đá</a></h4>
-                                        <div class="price-box">
-                                            <span class="new-price">$46.80</span>
-                                        </div>
-                                    </div>
-                                    <div class="add-actions">
-                                        <ul class="add-actions-link">
-                                            <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                            <li><a class="links-details" href=""><i class="fas fa-heart"></i></a>
-                                            </li>
-                                            <li><a href="#" title="quick view" class="quick-view-btn"
-                                                    data-toggle="modal" data-target="#exampleModalCenter"><i
-                                                        class="fa fa-eye"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- single-product-wrap end -->
-                        </div>
-                        <div class="col-lg-12">
-                            <!-- single-product-wrap start -->
-                            <div class="single-product-wrap">
-                                <div class="product-image">
-                                    <a href="single-product.html">
-                                        <img src="images/Shopee/15.jpg" alt="Li's Product Image">
-                                    </a>
-                                    <span class="sticker">Sale</span>
-                                </div>
-                                <div class="product_desc">
-                                    <div class="product_desc_info">
-                                        <div class="product-review">
-                                            <div class="rating-box">
-                                                <ul class="rating">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li class="no-star"><i class="fa fa-star"></i></li>
-                                                    <li class="no-star"><i class="fa fa-star"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <h4><a class="product_name" href="single-product.html">Chậu sứ</a></h4>
-                                        <div class="price-box">
-                                            <span class="new-price new-price-2">$71.80</span>
-                                            <span class="old-price">$77.22</span>
-                                            <span class="discount-percentage">-7%</span>
-                                        </div>
-                                    </div>
-                                    <div class="add-actions">
-                                        <ul class="add-actions-link">
-                                            <li class="add-cart active"><a href="#">Add to cart</a></li>
-                                            <li><a class="links-details" href=""><i class="fas fa-heart"></i></a>
-                                            </li>
-                                            <li><a href="#" title="quick view" class="quick-view-btn"
-                                                    data-toggle="modal" data-target="#exampleModalCenter"><i
-                                                        class="fa fa-eye"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- single-product-wrap end -->
-                        </div>
-                    <div class="gap-element" style="display:block; height:auto; padding-top:30px"></div>
-                    
-                </div>
-            </article>
-        </div>
-    </div>
-    <!-- --------------------- -->
-
-    <!-- footer -->
     <footer>
-
         <div class="footer" style="margin-top: 100px;">
             <div class="footer-static-middle">
                 <div class="container">
@@ -932,7 +517,6 @@
     <script src="js/venobox.min.js"></script>
     <script src="js/scrollUp.min.js"></script>
     <script src="js/main.js"></script>
-	<script src="js/myLogin.js"></script>
 </body>
 
 

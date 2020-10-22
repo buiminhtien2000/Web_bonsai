@@ -1,83 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="../css/adminCss.css">
-  <script src="../js/adminJS.js"></script>
-</head>
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-4 col-md-3 col-lg-3 col-xl-2 menu-left float-left p-0" id="hiddenMenus">
-        <div class="card">
-          <button onclick="show_hidden()" class="float-right">x</button>
-          <div class="card-body text-center">
-            <img src="../update/user.png">
-          </div>
-          <div class="card-footer">
-            <ul>
-              <li data-toggle="collapse" data-target="#Profile-user"><i class="fas fa-users"></i>
-                Bùi Minh Tiến <i class="fas fa-angle-down"></i>
-                <ul class="collapse" id="Profile-user">
-                  <li class="nav-link"><a href="#">Cài Đặt</a></li>
-                  <li class="nav-link"><a href="#">Đăng Xuất</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <ul class="navbar-nav">
-          <li data-toggle="collapse" data-target="#productManager" class="nav-item "><i
-              class="fas fa-clipboard-list"></i> Quản Lý Sản Phẩm <i class="fas fa-angle-down"></i>
-            <ul class="navbar-nav collapse" id="productManager">
-              <li class="nav-item"><a class="text-white nav-link" href="addProduct.html">Thêm Sản Phẩm</a></li>
-              <li class="nav-item"><a class="text-white nav-link" href="updateProduct.html">Cập Nhật Sản Phẩm</a></li>
-              <li class="nav-item"><a class="text-white nav-link" href="listProduct.html">Danh Sách Sản Phẩm</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="managerBill.html" class="nav-link"><i class="fas fa-file-invoice-dollar"></i>
-              Quản Lý Đơn Hàng</a></li>
-          <li class="nav-item"><a href="" class="nav-link"><i class="fas fa-comments"></i> Quản Lý Bình Luận</a></li>
-          <li class="nav-item"><a href="" class="nav-link"><i class="fas fa-question-circle"></i> Trợ Giúp</a></li>
-        </ul>
-      </div>
-      <div class="col-md-12 col-lg-12 col-xl-10 float-right" id="fullScreen">
-        <div class="col-2 col-md-2 col-lg-2 float-left menu-top">
-          <button class="navbar-toggler float-left" onclick="show_menu()">
-            <i class="fas fa-bars"></i>
-          </button>
-        </div>
-        <ul class="nav col-10 col-md-10 col-lg-10 justify-content-end menu-top float-left mb-2">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#"><i class="fas fa-search"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#"><i class="far fa-bell"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#"><i class="fas fa-cog"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><img src="../update/user.png"></a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#">Bùi Minh Tiến</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Cài Đặt</a>
-              <a class="dropdown-item" href="#">Đăng Xuất</a>
-            </div>
-          </li>
-        </ul>
-        <div class="content">
-          <div class="row justify-content-end">
-            <form class="mt-2 mr-2">
+        <div ng-controller="managerProduct">
+          <div class="row justify-content-end" ng-controller="managerProduct">
+            <form class="mt-2 mr-2" ng-submit="submitProduct()">
               <input type="text" name="">
               <input type="submit" name="" value="Tìm Kiếm">
             </form>
@@ -93,66 +16,20 @@
               <div class="col-2 col-md-2 float-left text-center">Thao Tác</div>
             </div>
 
-            <div class="col-sm-12 col-md-12 m-auto row-align m-auto backg-white">
-              <div class="col-md-2 col-sm-2 float-left"><img src="../image/senDa/MS014.jpg"></div>
+            <div class="col-sm-12 col-md-12 m-auto row-align m-auto backg-white" ng-repeat="product in products">
+              <div class="col-md-2 col-sm-2 float-left"><img src="../update/{{product.pictureProduct}}"></div>
               <div class="col-3 col-md-2 float-left">
-                <p class="float-left text-dark">Sen Đá</p>
+                <p class="float-left text-dark">{{product.productName}}</p>
               </div>
               <div class="col-md-2 col-sm-2 float-left d-md-block hidden-value">
-                <p class="text-danger">200.000 VNĐ</p>
+                <p class="text-danger">{{product.price}} đ</p>
               </div>
               <div class="col-md-2 col-sm-2 float-left">
-                <p>25/09/2020</p>
+                <p>{{product.dateAdded}}</p>
               </div>
-              <div class="col-md-2 col-sm-2 float-left">1</div>
-              <div class="col-2 col-md-2 float-left"><a href="">Xóa</a> | <a href="">Sửa</a> </div>
-            </div>
-            <div class="col-sm-12 col-md-12 m-auto row-align m-auto backg-white">
-              <div class="col-md-2 col-sm-2 float-left"><img src="../image/senDa/MS014.jpg"></div>
-              <div class="col-3 col-md-2 float-left">
-                <p class="float-left text-dark">Sen Đá</p>
-              </div>
-              <div class="col-md-2 col-sm-2 float-left d-md-block hidden-value">
-                <p class="text-danger">200.000 VNĐ</p>
-              </div>
-              <div class="col-md-2 col-sm-2 float-left">
-                <p>25/09/2020</p>
-              </div>
-              <div class="col-md-2 col-sm-2 float-left">1</div>
-              <div class="col-2 col-md-2 float-left"><a href="">Xóa</a> | <a href="">Sửa</a> </div>
-            </div>
-            <div class="col-sm-12 col-md-12 m-auto row-align m-auto backg-white">
-              <div class="col-md-2 col-sm-2 float-left"><img src="../image/senDa/MS014.jpg"></div>
-              <div class="col-3 col-md-2 float-left">
-                <p class="float-left text-dark">Sen Đá</p>
-              </div>
-              <div class="col-md-2 col-sm-2 float-left d-md-block hidden-value">
-                <p class="text-danger">200.000 VNĐ</p>
-              </div>
-              <div class="col-md-2 col-sm-2 float-left">
-                <p>25/09/2020</p>
-              </div>
-              <div class="col-md-2 col-sm-2 float-left">1</div>
-              <div class="col-2 col-md-2 float-left"><a href="">Xóa</a> | <a href="">Sửa</a> </div>
-            </div>
-            <div class="col-sm-12 col-md-12 m-auto row-align m-auto backg-white">
-              <div class="col-md-2 col-sm-2 float-left"><img src="../image/senDa/MS014.jpg"></div>
-              <div class="col-3 col-md-2 float-left">
-                <p class="float-left text-dark">Sen Đá</p>
-              </div>
-              <div class="col-md-2 col-sm-2 float-left d-md-block hidden-value">
-                <p class="text-danger">200.000 VNĐ</p>
-              </div>
-              <div class="col-md-2 col-sm-2 float-left">
-                <p>25/09/2020</p>
-              </div>
-              <div class="col-md-2 col-sm-2 float-left">1</div>
-              <div class="col-2 col-md-2 float-left"><a href="">Xóa</a> | <a href="">Sửa</a> </div>
+              <div class="col-md-2 col-sm-2 float-left">{{product.quantity}}</div>
+              <div class="col-2 col-md-2 float-left"><a ng-click="deleteProduct(product.id);">Xóa</a> | <a href="#!updateProduct/{{product.id}}">Sửa</a> </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+      

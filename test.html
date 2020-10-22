@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="../js/adminJS.js"></script>
+    <script src="js/adminJS/adminApp.js"></script>
+</head>
+<body ng-app="adminApp">
+    <div id="login" class="container tab-pane active " ng-controller="managerUser" ><br>
+        <form ng-submit="checkUser()">
+            <div class="col mt-3">
+                <input type="text" placeholder="Tài Khoản" class="form-control" ng-model="form.account" />
+            </div>
+            <div class="col mt-3">
+                <input type="password" placeholder="Mật Khẩu" class="form-control" ng-model="form.password" />
+            </div>
+            <div class="col mt-2">
+                <input type="submit" value="Đăng Nhập" class="mt-2 form-control" />
+                <input type="button" onclick="hiddenForm()" value="Thoát" class="mt-2 mb-2 form-control" />
+            </div>
+            <div class="col mt-2">
+                <a href="#">Quên Mật Khẩu?</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

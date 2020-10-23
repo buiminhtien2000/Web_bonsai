@@ -5,6 +5,7 @@ var urlUploadFile = "http://127.0.0.1:5500/update/";
 /*---------------------routing---------------------*/
 adminApp.controller("managerProduct", function ($scope, $http,
 	$routeParams) {
+		
 	$scope.products = [];
 	$scope.product = [];
 	$scope.form = {
@@ -190,9 +191,16 @@ adminApp.controller("managerUser", function ($scope, $http) {
 		picture: "",
 		position: 0,
 	};
-
+	$scope.mesenger ="";
+	$scope.displayMessenger = "false";
 	_refreshPageData();
-
+	$scope.loginUser=[];
+	$scope.loginUser= angular.fromJson(localStorage.getItem('sessionUser'));
+	console.log($scope.loginUser.name)
+	$scope.logout = function(){
+		window.open(location.origin+"/index.html#!", "_self");
+		localStorage.removeItem("sessionUser");
+	}
 	$scope.addUser = function () {
 		$scope.form.price = Number($scope.form.price);
 		$scope.form.quantity = Number($scope.form.quantity);
@@ -214,12 +222,58 @@ adminApp.controller("managerUser", function ($scope, $http) {
 		$scope.form.password = document.getElementById('password').value;
 		$scope.form.birthDay = document.getElementById('birthday').value;
 		$scope.form.phoneOrEmail = document.getElementById('phoneOrEmail').value;
-		$scope.form.adress = document.getElementById('adress').value;
-		$scope.form.picture = document.getElementById('name').value;
+		var fileUpload = document.getElementById('inputFile').files;
+		if(fileUpload.length == 0){
+			$scope.form.pictureProduct = document.getElementById('pictureProduct').value;
+		}else{
+			$scope.uploadFileAPI();
+		}
 		$http({
 			method: "PUT",
 			url: path + "/api/manager_user.json?id="+idUser,
 			data: angular.toJson($scope.form),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		}).then(function success(){
+			$scope.mesenger = "Cập Nhật Thành Công!";
+			$scope.displayMessenger="true";
+		}, function error(){
+			$scope.mesenger = "Cập Nhật Thất Bại";
+			$scope.displayMessenger="false";
+		});
+	}
+	$scope.uploadFileAPI = function () {
+		/*-------------------convertBase64----------------*/
+		//lấy giá trị của file
+		var selectedFile = document.getElementById("inputFile").files;
+		//kiểm tra file có giá trị không
+		if (selectedFile.length > 0) {
+			//lấy phần tử của file
+			var fileToLoad = selectedFile[0];
+			$scope.form.pictureProduct = fileToLoad.name;
+			$scope.fileUpload.fileName = fileToLoad.name;
+			// khởi tạo fileReader để đọc giá trị file
+			var fileReader = new FileReader();
+			//set giá trị pictureProduct trong mảng form
+			$scope.form.pictureProduct = fileToLoad.name;
+			$scope.fileUpload.root = urlUploadFile;
+			fileReader.addEventListener("load", function (e) {
+				//convert giá trị file sang base64
+				var basefile = e.target.result;
+				$scope.fileUpload.base64 = basefile.split(",")[1];
+				$scope.fileUpload.fileName = fileToLoad.name;
+			}, false);
+			// Convert data sang base64
+			if (fileToLoad) {
+				fileReader.readAsDataURL(fileToLoad);
+			}
+		}
+		$http({
+			method: "POST",
+			//url gọi api
+			url: path + "/api/uploadFile.json",
+			data: angular.toJson($scope.fileUpload),
 			headers: {
 				'Content-Type': 'application/json'
 			}
@@ -230,29 +284,6 @@ adminApp.controller("managerUser", function ($scope, $http) {
 			method: "DELETE",
 			url: path + "/api/manager_user.json?id=" + $scope.form.id,
 		}).then(_success, _error);
-	}
-	$scope.loginUser = [];
-	$scope.displayUser="false";
-	$scope.checkUser=function(){
-		if($scope.form.account!=null && $scope.form.account!=null){
-			for(var i = 0;i<$scope.users.length;i++){
-				if($scope.form.account===$scope.users[i].account && $scope.form.password===$scope.users[i].password){
-					$scope.user=$scope.users[i];
-					localStorage.setItem('sessionUser',angular.toJson($scope.user));
-					
-					$scope.user = null;
-					$scope.loginUser = localStorage.getItem('sessionUser');
-					if($scope.loginUser!=null){
-						$scope.displayUser="true";
-					}
-					location.reload();
-				}else{
-					$scope.error = "Tài Khoản Và Mật Khẩu Không Đúng";
-				}
-			}
-		}else{
-			$scope.error = "Tài Khoản Và Mật Khẩu Không Được Để Trống";
-		}
 	}
 	function findByName() {
 		var textSearxh = document.getElementById('textSearch').value;

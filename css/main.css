@@ -1,6 +1,6 @@
 .header{
 	height: var(--header-height);
-	background: linear-gradient(0,#7da918,#7da918);
+	background: linear-gradient(0,#93a918,#7da918);
 }
 .header__navbar{
 	display: flex;

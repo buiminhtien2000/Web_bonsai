@@ -1,107 +1,64 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="../css/adminCss.css">
-  <script src="../js/adminJS.js"></script>
-</head>
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-4 col-md-3 col-lg-3 col-xl-2 menu-left float-left p-0" id="hiddenMenus">
-        <div class="card">
-          <button onclick="show_hidden()" class="float-right">x</button>
-          <div class="card-body text-center">
-            <img src="../update/user.png">
-          </div>
-          <div class="card-footer">
-            <ul>
-              <li data-toggle="collapse" data-target="#Profile-user"><i class="fas fa-users"></i>
-                Bùi Minh Tiến <i class="fas fa-angle-down"></i>
-                <ul class="collapse" id="Profile-user">
-                  <li class="nav-link"><a href="#">Cài Đặt</a></li>
-                  <li class="nav-link"><a href="#">Đăng Xuất</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <ul class="navbar-nav">
-          <li data-toggle="collapse" data-target="#productManager" class="nav-item "><i
-              class="fas fa-clipboard-list"></i> Quản Lý Sản Phẩm <i class="fas fa-angle-down"></i>
-            <ul class="navbar-nav collapse" id="productManager">
-              <li class="nav-item"><a class="text-white nav-link" href="addProduct.html">Thêm Sản Phẩm</a></li>
-              <li class="nav-item"><a class="text-white nav-link" href="updateProduct.html">Cập Nhật Sản Phẩm</a></li>
-              <li class="nav-item"><a class="text-white nav-link" href="listProduct.html">Danh Sách Sản Phẩm</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="managerBill.html" class="nav-link"><i class="fas fa-file-invoice-dollar"></i>
-              Quản Lý Đơn Hàng</a></li>
-          <li class="nav-item"><a href="" class="nav-link"><i class="fas fa-comments"></i> Quản Lý Bình Luận</a></li>
-          <li class="nav-item"><a href="" class="nav-link"><i class="fas fa-question-circle"></i> Trợ Giúp</a></li>
-        </ul>
+<div ng-controller="managerUser">
+  <div class="row justify-content-end">
+    <form class="mt-2 mr-2" ng-submit="findByName">
+      <input type="text" id="textSearch">
+      <input type="submit" name="" value="Tìm Kiếm">
+    </form>
+  </div>
+  <div class="row mt-2 list-cart">
+    <div class="col-sm-12 col-md-12 m-auto backg-white p-0">
+      <div class="col-3 col-md-3 float-left text-center">Tên Người Dùng</div>
+      <div class="col-3 col-md-3 float-left text-center">Địa Chỉ</div>
+      <div class="col-3 col-md-3 float-left text-center hidden-value d-md-block">Emai/Số Điện Thoại</div>
+      <div class="col-3 col-md-3 float-left text-center"></div>
+    </div>
+    <div class="col-sm-12 col-md-12 m-auto row-align m-auto backg-white" ng-repeat="user in users">
+      <div class="col-3 col-md-3 float-left text-center">
+        <p class="text-dark">{{user.name}}</p>
       </div>
-      <div class="col-md-12 col-lg-12 col-xl-10 float-right" id="fullScreen">
-        <div class="col-2 col-md-2 col-lg-2 float-left menu-top">
-          <button class="navbar-toggler float-left" onclick="show_menu()">
-            <i class="fas fa-bars"></i>
-          </button>
-        </div>
-        <ul class="nav col-10 col-md-10 col-lg-10 justify-content-end menu-top float-left mb-2">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#"><i class="fas fa-search"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#"><i class="far fa-bell"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#"><i class="fas fa-cog"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><img src="../update/user.png"></a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#">Bùi Minh Tiến</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Cài Đặt</a>
-              <a class="dropdown-item" href="#">Đăng Xuất</a>
+      <div class="col-md-3 col-sm-2 float-left d-md-block hidden-value text-center">
+        <p class="text-dark">{{user.adress}}</p>
+      </div>
+      <div class="col-md-3 col-sm-2 float-left text-center">
+        <p>{{user.phoneOrEmail}}</p>
+      </div>
+      <div class="col-md-3 col-sm-2 float-left text-center">
+        <a href="#">Xóa</a> | <a data-toggle="collapse" data-target="#displayDeltail{{$index+1}}"
+          class="nav-link d-inline p-0">Sửa</a>
+      </div>
+      <div class="backg-white collapse custom-deltail" id="displayDeltail{{$index+1}}">
+        <div class="col-9 col-lg-5 m-auto">
+          <form ng-submit="updateUser()">
+            <input type="hidden" id="idUser" value="{{user.id}}">
+            <div class="col">
+              <input type="text" class="form-control" id="name" value="{{user.name}}">
             </div>
-          </li>
-        </ul>
-        <div class="content">
-          <div class="row">
-            <h2 class="custom-input">Thêm Sản Phẩm</h2>
-          </div>
-          <form>
-            <div class="form-row">
-              <div class="col-10 col-md-5 custom-input">
-                <input type="text" name="" class="form-control" placeholder="Tên Người Dùng">
-              </div>
-              <div class="col-10 col-md-5 custom-input">
-                <input type="text" class="form-control" name="" placeholder="Mật Khẩu">
-              </div>
-              <div class="col-10 col-md-5 custom-input">
-                <input type="text" name="" class="form-control" placeholder="Số Điện Thoại Hoặc Email">
-              </div>
-              <div class="col-10 col-md-5 custom-input">
-                <input type="file" name="" class="form-control">
-              </div>
-              <div class="col-10 col-md-5 custom-input text-center">
-                <input type="submit" name="" Value="Cập Nhập">
-                <input type="reset" name="" Value="Mới">
-              </div>
+            <div class="col">
+              <input type="text" class="form-control" id="password" value="{{user.password}}">
+            </div>
+            <div class="col">
+              <input type="date" class="form-control" id="birthday" value="{{user.birthDay}}">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="phoneOrEmail" value="{{user.phoneOrEmail}}">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="adress" value="{{user.adress}}">
+            </div>
+            <div class="col">
+              <input type="file" id="pictureUse">
+            </div>
+            
+            <div class="col"><!--checked-->
+              <input type="radio" name="position" value="1">Admin
+              <input type="radio" name="position" value="0">User
+            </div>
+            <div class="col">
+              <input type="submit" value="Cập Nhập" class="form-control p-0">
             </div>
           </form>
         </div>
       </div>
     </div>
   </div>
-</body>
-</html>
+</div>

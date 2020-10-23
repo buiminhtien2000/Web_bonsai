@@ -152,10 +152,18 @@
 	border:1px solid #1dd9a5;
 }
 /*-------------------------managerBill-----------------------------*/
-.billDeltail img{
+.custom-deltail img{
 	width:100px;
 	height:100px;
 }
-.billDeltail p{
+.custom-deltail p{
 	display: inline-table;
+}
+.custom-deltail .col{
+	margin-top: 10px;
+}
+.custom-deltail input[type='submit']{
+	border:none;
+	background-color: #1dd9a5;
+	color: white;
 }

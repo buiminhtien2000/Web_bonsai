@@ -30,14 +30,14 @@
     <script src="js/userJS/userApp.js"></script>
 </head>
 
-<body ng-app="userApp">
+<body ng-app="userApp"  ng-controller="managerUser">
     <!---------FormLogin------>
     <div class="col-12 col-md-8 col-lg-6 m-auto custom-form" id="customform">
         <!-- <div class="col text-center mb-2">
                 <img src="image/logo.png" />
             </div> -->
         <ul class="nav nav-tabs col m-auto" role="tablist">
-            <li class="nav-item" z>
+            <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#login">Đăng Nhập</a>
             </li>
             <li class="nav-item">
@@ -48,7 +48,8 @@
         <!-- Tab panes -->
         <div class="tab-content col custom-tabcontent">
             <div id="login" class="container tab-pane active "><br>
-                <form ng-submit="checkUser()">
+                <form ng-submit="login()">
+                    <p class="text-danger">{{error}}</p>
                     <div class="col mt-3">
                         <input type="text" placeholder="Tài Khoản" class="form-control" ng-model="form.account" />
                     </div>
@@ -65,27 +66,25 @@
                 </form>
             </div>
             <div id="register" class="container tab-pane"><br>
-                <form action="">
+                <form ng-submit="addUser()">
+                    <p class="text-success">{{mesenger}}</p>
                     <div class="col mt-3">
-                        <input type="text" placeholder="Họ và Tên" class="form-control" />
+                        <input type="text" placeholder="Họ và Tên" class="form-control" ng-model="form.name"/>
                     </div>
                     <div class="col mt-3">
-                        <input type="text" placeholder="Tên Đăng Nhập" class="form-control" />
+                        <input type="text" placeholder="Tên Đăng Nhập" class="form-control" ng-model="form.account"/>
                     </div>
                     <div class="col mt-3">
-                        <input type="password" placeholder="Mật Khẩu" class="form-control" />
+                        <input type="password" placeholder="Mật Khẩu" class="form-control" ng-model="form.password"/>
                     </div>
                     <div class="col mt-3">
-                        <input type="password" placeholder="Nhập Lại Khẩu" class="form-control">
+                        <input type="date" placeholder="Ngày Sinh" class="form-control" id="birthday"/>
                     </div>
                     <div class="col mt-3">
-                        <input type="date" id="birthday" placeholder="Nhập Lại" class="form-control" />
-                    </div>
-                    <div class="col mt-3">
-                        <input type="email" id="email" placeholder="Email" class="form-control" />
+                        <input type="text"  placeholder="Email" class="form-control" ng-model="form.adress"/>
                     </div>
                     <div class="col mt-2">
-                        <input type="submit" value="Đăng Ký" class="mt-2 form-control" />
+                        <input type="submit" value="Đăng Ký" class="mt-2 form-control"/>
                         <input type="button" onclick="hiddenForm()" value="Thoát" class="mt-2 mb-2 form-control" />
                     </div>
                     <div class="col mt-2">
@@ -144,28 +143,22 @@
                                         Trợ giúp
                                     </a>
                                 </li>
-                                <li class="header__navbar-item">
+                                <li class="header__navbar-item" ng-show="!{{displayUser}}">
                                     <a onclick="showForm()" class="header__navbar-item-link">
                                         <i class="fas fa-user-circle"></i>
                                         Đăng nhập
                                     </a>
                                 </li>
-                                <li class="header__navbar-item header__navbar-user">
+                                <li class="header__navbar-item header__navbar-user" ng-show="{{displayUser}}">
                                     <div class="ht-setting-trigger" style="padding-right: 10px;">
-                                        <i class="fas fa-user-circle">Account</i>
+                                        <i class="fas fa-user-circle">{{loginUser.name}}</i>
                                     </div>
                                     <ul class="header__navbar-user-menu">
                                         <li class="header__navbar-user-item">
                                             <a href="#">Tài khoản của tôi</a>
                                         </li>
-                                        <li class="header__navbar-user-item">
-                                            <a href="#">Địa chỉ của tôi</a>
-                                        </li>
-                                        <li class="header__navbar-user-item">
-                                            <a href="#">Đơn mua</a>
-                                        </li>
                                         <li class="header__navbar-user-item header__navbar-user-item--separate">
-                                            <a href="#">Đăng xuất</a>
+                                            <a ng-click="logout()">Đăng xuất</a>
                                         </li>
                                     </ul>
                                 </li>

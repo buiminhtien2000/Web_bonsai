@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div class="container">
+        <div ng-controller="myCtrl">
+            <div class="card-header">
+                <h1>Tài khoản của tôi</h1>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label>Họ tên người dùng: </label>
+                        <input ng-model="account.fullname" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Tên tài khoản: </label>
+                        <input ng-model="account.accname" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Ngày sinh: </label>
+                        <input ng-model="account.birthday" class="form-control" type="date" value="MM/DD/YYYY" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email: </label>
+                        <input ng-model="account.email" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ: </label>
+                        <input ng-model="account.address" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-default" ng-click="insert()">Thêm</button>
+                        <button class="btn btn-default" ng-click="update()">Sửa</button>
+                        <button class="btn btn-default" ng-click="delete()">Xóa</button>
+                        <button class="btn btn-default" ng-click="clear()">Mới</button>
+                        <button class="btn btn-default" ng-click="cancel()">Hủy</button>
+                    </div>
+                </form>
+
+                <table class="table">
+                    <tr>
+                        <th>Họ tên người dùng</th>
+                        <th>Tên tài khoản</th>
+                        <th>Ngày sinh</th>
+                        <th>Email</th>
+                        <th>Địa chỉ</th>
+                        <th></th>
+                    </tr>
+                    <tr ng-repeat="acc in accounts">
+                        <td>{{acc.fullname}}</td>
+                        <td>{{acc.accname}}</td>
+                        <td>{{acc.birthday}}</td>
+                        <td>{{acc.email}}</td>
+                        <td>{{acc.address}}</td>
+                        <td>
+                            <a href="#" ng-click="edit(0)">Sửa</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function ($scope) {
+            $scope.accounts =
+            [{
+                fullname: "Lê Thanh Đạt",
+                accname: "datltpd02902",
+                birthday: "31-7-2000",
+                email: "datltpd02902@gmail.com",
+                address: "86 Nguyễn Sinh Săc-Hòa Minh-Liên Chiểu-Đà Nẵng"
+            }];
+            $scope.account = {};
+            $scope.index = -1;
+
+            // Scope cho các button
+            $scope.clear = function () {
+                $scope.account = {};
+                $scope.index = -1;
+            }
+            $scope.insert = function () {
+                $scope.accounts.push(angular.copy($scope.account));
+                $scope.clear();
+            }
+            $scope.update = function () {
+                $scope.accounts[$scope.index] = (angular.copy($scope.account));
+            }
+            $scope.delete = function () {
+                $scope.accounts.splice($scope.index, 1);
+                $scope.clear();
+            }
+            $scope.cancel = function () {
+                if ($scope.index == -1) {
+                    $scope.clear();
+                } else {
+                    $scope.edit($scope.index);
+                }
+            }
+            $scope.edit = function (index) {
+                $scope.index = index;
+                $scope.account = angular.copy($scope.accounts[index]);
+            }
+        });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

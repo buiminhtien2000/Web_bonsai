@@ -1,0 +1,107 @@
+body {
+  width: 100%;
+  height: auto;
+  padding: 0 auto;
+}
+
+header {
+  background-image: url("/image/logoBonsai.jpg");
+  height: 320px;
+}
+
+.shopping-mall {
+  bottom: 20px;
+  font-variant: small-caps;
+  margin: 5px;
+  /* background-image: url("https://tse4.mm.bing.net/th?id=OIP.d1vOJAkZR514a3mrxubJcwHaG_&pid=Api&P=0&w=160&h=152"); */
+}
+
+.shopping-mall>h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 70px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 2px #000;
+  padding-bottom: 0px;
+  border-bottom: 1px dotted gray;
+  margin: 10px;
+  color: #d3f091;
+  margin-left: 730px;
+}
+
+.shopping-mall>h5 {
+  margin-top: 10px;
+  margin-left: 790px;
+  letter-spacing: .5px;
+}
+
+.info>h5 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  margin-bottom: auto;
+}
+
+.card-body>p {
+  text-align: left;
+}
+
+.img-lq{
+  padding-top: 15px;
+  padding-bottom: 1px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.col-sm-3{
+  float: left;
+  display: block;
+}
+.img-lq>img {
+  margin-left: 100px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 170px;
+}
+
+.img-lq>img:hover {
+  border: 2px solid #10e62d;
+  border-style: dashed;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 185px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+div.lq1{
+  padding: 10px;
+  text-align: center;
+
+}
+.lq1>p:hover{
+  color: #8340af;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.front .btn {
+  margin-right: 20px;
+}
+
+.slider {
+  /* border: black solid 1px; */
+  /* overflow:scroll; */
+  margin: 10px;
+  padding: 4px;
+  width: 1000px;
+  /* height: 200px; */
+}
+
+.container-fluid{
+  float: left;
+  /* border: black solid 1px; */
+  /* overflow-y:scroll; */
+  margin: 10px;
+  padding: 4px;
+  height: 350px;
+}

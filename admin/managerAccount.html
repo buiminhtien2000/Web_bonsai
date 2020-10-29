@@ -23,13 +23,16 @@
         <p>{{user.phoneOrEmail}}</p>
       </div>
       <div class="col-md-3 col-sm-2 float-left text-center">
-        <a href="#">Xóa</a> | <a data-toggle="collapse" data-target="#displayDeltail{{$index+1}}"
+        <a  class="nav-link d-inline" ng-click="deleteUser(user.id)">Xóa</a> | <a data-toggle="collapse" data-target="#displayDeltail{{$index+1}}"
           class="nav-link d-inline p-0">Sửa</a>
       </div>
       <div class="backg-white collapse custom-deltail" id="displayDeltail{{$index+1}}">
         <div class="col-9 col-lg-5 m-auto">
           <form ng-submit="updateUser()">
+            <p class="text-success" ng-show="!{{displayMessenger}}">{{mesenger}}</p>
+            <p class="text-danger" ng-show="{{displayMessenger}}">{{mesenger}}</p>
             <input type="hidden" id="idUser" value="{{user.id}}">
+            <input type="hidden" id="pictureProduct" value="{{user.pictureProduct}}">
             <div class="col">
               <input type="text" class="form-control" id="name" value="{{user.name}}">
             </div>
@@ -46,7 +49,7 @@
               <input type="text" class="form-control" id="adress" value="{{user.adress}}">
             </div>
             <div class="col">
-              <input type="file" id="pictureUse">
+              <input type="file" id="inputFile">
             </div>
             
             <div class="col"><!--checked-->

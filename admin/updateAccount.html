@@ -1,4 +1,4 @@
-<div ng-controller="managerUser">
+<div>
   <div class="row">
     <h2 class="custom-input">Chỉnh Sửa Tài Khoản</h2>
   </div>
@@ -6,22 +6,22 @@
     <p class="text-success" ng-show="!{{displayMessenger}}">{{mesenger}}</p>
     <p class="text-danger" ng-show="{{displayMessenger}}">{{mesenger}}</p>
     <div class="form-row">
-      <input type="hidden" name="" class="form-control" value="{{users[0].id}}" id="idUser">
-      <input type="hidden" name="" class="form-control" value="{{users[0].picture}}" id="pictureProduct">
+      <input type="hidden" name="" class="form-control" value="{{user[0].id}}" id="idUser">
+      <input type="hidden" name="" class="form-control" value="{{user[0].pictureProduct}}" id="pictureProduct">
       <div class="col-10 col-md-5 custom-input">
-        <input type="text" name="" class="form-control" placeholder="Tên Người Dùng" value="{{users[0].name}}"
+        <input type="text" name="" class="form-control" placeholder="Tên Người Dùng" value="{{user[0].name}}"
           id="name">
       </div>
       <div class="col-10 col-md-5 custom-input">
-        <input type="text" class="form-control" name="" placeholder="Mật Khẩu" value="{{users[0].password}}"
+        <input type="text" class="form-control" name="" placeholder="Mật Khẩu" value="{{user[0].password}}"
           id="password">
       </div>
       <div class="col-10 col-md-5 custom-input">
-        <input type="date" name="" class="form-control" value="{{users[0].birthDay}}" id="birthday">
+        <input type="date" name="" class="form-control" value="{{user[0].birthDay}}" id="birthday">
       </div>
       <div class="col-10 col-md-5 custom-input">
         <input type="text" name="" class="form-control" placeholder="Số Điện Thoại Hoặc Email"
-          value="{{users[0].phoneOrEmail}}" id="phoneOrEmail">
+          value="{{user[0].phoneOrEmail}}" id="phoneOrEmail">
       </div>
       <div class="col-10 col-md-5 custom-input">
         <input type="file" name="" class="form-control" id="inputFile">

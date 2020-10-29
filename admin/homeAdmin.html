@@ -17,7 +17,7 @@
 </head>
 <body>
   <div class="container-fluid" ng-app="adminApp">
-    <div class="row" ng-controller="managerUser">
+    <div class="row" ng-controller="managerUser"  ng-init="findById(loginUser.id)">
       <div class="col-4 col-md-3 col-lg-3 col-xl-2 menu-left float-left p-0" id="hiddenMenus">
         <div class="card">
           <button onclick="show_hidden()" class="float-right">x</button>
@@ -27,7 +27,7 @@
           <div class="card-footer">
             <ul>
               <li data-toggle="collapse" data-target="#Profile-user">
-                {{loginUser.name}} <i class="fas fa-angle-down"></i>
+                {{user[0].name}} <i class="fas fa-angle-down"></i>
                 <ul class="collapse" id="Profile-user">
                   <li class="nav-link"><a href="#!updateAccount">Cài Đặt</a></li>
                   <li class="nav-link"><a href="#">Đăng Xuất</a></li>
@@ -72,7 +72,7 @@
             <a class="nav-link" href="#"><img src="../update/user.png"></a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#">{{loginUser.name}}</a>
+            <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#">{{user[0].name}}</a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="!#managerAccount">Cài Đặt</a>
               <a class="dropdown-item" ng-click="logout()">Đăng Xuất</a>

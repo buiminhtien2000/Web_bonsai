@@ -1,97 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<script rel="stylesheet" src="js/bootstrap.min.js"></script>
-	<script rel="stylesheet" src="js/jquery.min.js"></script>
-	<title></title>
-</head>
-<body>
-	<div class="container-fluid">
-		<div class="row list-cart">
-			<div class="col-sm-12 col-md-11 m-auto backg-white hidden-value d-md-block p-0">
-				<div class="col-md-4 float-left text-center">Sản Phẩm</div>
-				<div class="col-md-2 float-left text-center">Đơn Giá</div>
-				<div class="col-md-2 float-left text-center">Số Lượng</div>
-				<div class="col-md-2 float-left text-center">Số Tiền</div>
-				<div class="col-md-2 float-left text-center">Thao Tác</div>
-			</div>
-			<div class="col-sm-12 col-md-11 m-auto row-align m-auto backg-white">
-				<div class="col-md-2 col-sm-2 float-left"><img src="image/senDa/MS014.jpg"></div>
-				<div class="col-sm-5 col-md-2 float-left">
-					<p class="float-left text-dark">Sen Đá</p>
-				</div>
-				<div class="col-sm-5 col-md-2 float-left">
-					<p class="text-danger">200.000 VNĐ</p>
-				</div>
-				<div class="col-sm-5 col-md-2 float-left"><button class="button-smail">+</button><input
-						class="input-smail" type="text" name="soLuong" value="1"><button class="button-smail">-</button>
-				</div>
-				<div class="col-md-2 col-sm-2 float-left d-md-block hidden-value">
-					<p class="text-danger">200.000 VNĐ</p>
-				</div>
-				<div class="col-sm-2 col-md-2 float-left d-md-block hidden-value"><a href="">Xóa</a></div>
-			</div>
-			<div class="col-sm-12 col-md-11 m-auto row-align m-auto backg-white">
-				<div class="col-md-2 col-sm-2 float-left"><img src="image/senDa/MS014.jpg"></div>
-				<div class="col-sm-5 col-md-2 float-left">
-					<p class="float-left text-dark">Sen Đá</p>
-				</div>
-				<div class="col-sm-5 col-md-2 float-left">
-					<p class="text-danger">200.000 VNĐ</p>
-				</div>
-				<div class="col-sm-5 col-md-2 float-left"><button class="button-smail">+</button><input
-						class="input-smail" type="text" name="soLuong" value="1"><button class="button-smail">-</button>
-				</div>
-				<div class="col-md-2 col-sm-2 float-left d-md-block hidden-value">
-					<p class="text-danger">200.000 VNĐ</p>
-				</div>
-				<div class="col-sm-2 col-md-2 float-left d-md-block hidden-value"><a href="">Xóa</a></div>
-			</div>
-			<div class="col-sm-12 col-md-11 m-auto row-align m-auto backg-white">
-				<div class="col-md-2 col-sm-2 float-left"><img src="image/senDa/MS014.jpg"></div>
-				<div class="col-sm-5 col-md-2 float-left">
-					<p class="float-left text-dark">Sen Đá</p>
-				</div>
-				<div class="col-sm-5 col-md-2 float-left">
-					<p class="text-danger">200.000 VNĐ</p>
-				</div>
-				<div class="col-sm-5 col-md-2 float-left"><button class="button-smail">+</button><input
-						class="input-smail" type="text" name="soLuong" value="1"><button class="button-smail">-</button>
-				</div>
-				<div class="col-md-2 col-sm-2 float-left d-md-block hidden-value">
-					<p class="text-danger">200.000 VNĐ</p>
-				</div>
-				<div class="col-sm-2 col-md-2 float-left d-md-block hidden-value"><a href="">Xóa</a></div>
-			</div>
-			<div class="col-sm-12 col-md-11 m-auto row-align m-auto backg-white">
-				<div class="col-md-2 col-sm-2 float-left"><img src="image/senDa/MS014.jpg"></div>
-				<div class="col-sm-5 col-md-2 float-left">
-					<p class="float-left text-dark">Sen Đá</p>
-				</div>
-				<div class="col-sm-5 col-md-2 float-left">
-					<p class="text-danger">200.000 VNĐ</p>
-				</div>
-				<div class="col-sm-5 col-md-2 float-left"><button class="button-smail">+</button><input
-						class="input-smail" type="text" name="soLuong" value="1"><button class="button-smail">-</button>
-				</div>
-				<div class="col-md-2 col-sm-2 float-left d-md-block hidden-value">
-					<p class="text-danger">200.000 VNĐ</p>
-				</div>
-				<div class="col-sm-2 col-md-2 float-left d-md-block hidden-value"><a href="">Xóa</a></div>
-			</div>
-			<div class="col-12 col-md-11 m-auto backg-white row-align form-pay">
-				<div class="col-12 col-md-5 col-lg-4 text-left float-left p-0 mb-1">Mã Giảm Giá:<input type="text"
-						name="maGiamGia" class="text-right"></div>
-				<div class="col-8 col-md-5 col-lg-4 float-left p-0">
-					<p class="float-left m-0">Tổng Tiền Hàng: </p>
-					<p class="text-danger float-left ml-1 m-0">200.000 VND</p>
-				</div>
-				<div class="col-4 col-md-2 col-lg-4 float-left text-left"><input type="submit" name=""
-						value="Thanh Toán" class="button-medium"></div>
-				<input type="hidden" name="soLuong">
-				<input type="hidden" name="donGia">
-			</div>
+<div class="container-fluid" ng-controller="addBill">
+	<div class="row list-cart">
+		<div class="col-sm-12 col-md-11 m-auto backg-white hidden-value d-md-block p-0">
+			<div class="col-md-4 float-left text-center">Sản Phẩm</div>
+			<div class="col-md-2 float-left text-center">Đơn Giá</div>
+			<div class="col-md-2 float-left text-center">Số Lượng</div>
+			<div class="col-md-2 float-left text-center">Số Tiền</div>
+			<div class="col-md-2 float-left text-center">Thao Tác</div>
 		</div>
-		
+		<div class="col-sm-12 col-md-11 m-auto row-align m-auto backg-white" ng-repeat="list in listCart">
+			<div class="col-md-2 col-sm-2 float-left"><img src="image/senDa/MS014.jpg"></div>
+			<div class="col-sm-5 col-md-2 float-left">
+				<p class="float-left text-dark">{{list.productName}}</p>
+			</div>
+			<div class="col-sm-5 col-md-2 float-left">
+				<p class="text-danger">{{list.price}}</p>
+			</div>
+			<div class=" col-sm-5 col-md-2 float-left def-number-input number-input safari_only">
+				<input class="quantity input-smail" min="1" name="quantity" ng-model="form.quantity"
+					ng-change="sumMoney(list.price)" type="number">
+			</div>
+			<div class="col-md-2 col-sm-2 float-left d-md-block hidden-value" ng-init="sumMoney(list.price)">
+				<p class="text-danger">{{totalMoney}} VNĐ</p>
+			</div>
+			<div class="col-sm-2 col-md-2 float-left d-md-block hidden-value"><a href="">Xóa</a></div>
+		</div>
+		<div class="col-12 col-md-11 m-auto backg-white row-align form-pay">
+			<div class="col-12 col-md-5 col-lg-4 text-left float-left p-0 mb-1">Mã Giảm Giá:<input type="text"
+					name="maGiamGia" class="text-right"></div>
+			<div class="col-8 col-md-5 col-lg-4 float-left p-0">
+				<p class="float-left m-0">Tổng Tiền Hàng: </p>
+				<p class="text-danger float-left ml-1 m-0">200.000 VND</p>
+			</div>
+			<div class="col-4 col-md-2 col-lg-4 float-left text-left"><input type="submit" name="" value="Thanh Toán"
+					class="button-medium"></div>
+			<input type="hidden" name="soLuong">
+			<input type="hidden" name="donGia">
+		</div>
+	</div>
+</div>

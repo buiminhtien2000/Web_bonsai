@@ -155,7 +155,7 @@
                                     </div>
                                     <ul class="header__navbar-user-menu">
                                         <li class="header__navbar-user-item">
-                                            <a href="#">Tài khoản của tôi</a>
+                                            <a href="#!account">Tài khoản của tôi</a>
                                         </li>
                                         <li class="header__navbar-user-item header__navbar-user-item--separate">
                                             <a ng-click="logout()">Đăng xuất</a>
@@ -178,7 +178,6 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="header-bottom header-sticky d-none d-lg-block d-xl-block">
-
                             <div class="hb-menu">
                                 <nav>
                                     <ul>
@@ -200,7 +199,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 pl-0 ml-sm-15 ml-xs-15" style="margin-top: 30px;">
+                    <div class="col-lg-3 pl-0 ml-sm-15 ml-xs-15" style="margin-top: 30px;">
                         <form action="#" class="hm-searchbox">
 
                             <input type="text" placeholder="Enter your search key ...">
@@ -247,12 +246,9 @@
                                         </ul>
                                         <p class="minicart-total">SUBTOTAL: <span>200.000đ</span></p>
                                         <div class="minicart-button">
-                                            <a href="shopping-cart.html"
+                                            <a href="#!cart"
                                                 class="li-button li-button-fullwidth li-button-dark">
                                                 <span>View Full Cart</span>
-                                            </a>
-                                            <a href="checkout.html" class="li-button li-button-fullwidth">
-                                                <span>Checkout</span>
                                             </a>
                                         </div>
                                     </div>
@@ -328,6 +324,7 @@
         </div>
     </div>
     <div ng-view>
+
     </div>
     <footer>
         <div class="footer" style="margin-top: 100px;">

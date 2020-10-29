@@ -1,11 +1,10 @@
 var adminApp = angular.module("adminApp", ["ngRoute"]);
-const path = "http://localhost:8080/Web_bonsai";//link server
+const path = "http://localhost:8080/Web_bonsai";
 var urlUploadFile = "http://127.0.0.1:5500/update/";
 
 /*---------------------routing---------------------*/
 adminApp.controller("managerProduct", function ($scope, $http,
 	$routeParams) {
-		
 	$scope.products = [];
 	$scope.product = [];
 	$scope.form = {
@@ -180,6 +179,7 @@ adminApp.controller("managerProduct", function ($scope, $http,
 /*--------------managerUser--------------*/
 adminApp.controller("managerUser", function ($scope, $http) {
 	$scope.users = [];
+	$scope.user = [];
 	$scope.form = {
 		id: -1,
 		name: "",
@@ -196,7 +196,6 @@ adminApp.controller("managerUser", function ($scope, $http) {
 	_refreshPageData();
 	$scope.loginUser=[];
 	$scope.loginUser= angular.fromJson(localStorage.getItem('sessionUser'));
-	console.log($scope.loginUser.name)
 	$scope.logout = function(){
 		window.open(location.origin+"/index.html#!", "_self");
 		localStorage.removeItem("sessionUser");
@@ -236,6 +235,7 @@ adminApp.controller("managerUser", function ($scope, $http) {
 				'Content-Type': 'application/json'
 			}
 		}).then(function success(){
+			location.reload();
 			$scope.mesenger = "Cập Nhật Thành Công!";
 			$scope.displayMessenger="true";
 		}, function error(){
@@ -279,10 +279,10 @@ adminApp.controller("managerUser", function ($scope, $http) {
 			}
 		}).then(_success, _error);
 	}
-	$scope.deleteUser = function () {
+	$scope.deleteUser = function (id) {
 		$http({
 			method: "DELETE",
-			url: path + "/api/manager_user.json?id=" + $scope.form.id,
+			url: path + "/api/manager_user.json?id="+id,
 		}).then(_success, _error);
 	}
 	function findByName() {
@@ -296,12 +296,12 @@ adminApp.controller("managerUser", function ($scope, $http) {
 			console.log(response.statusText);
 		});
 	}
-	function findById() {
+	$scope.findById = function (id) {
 		$http({
 			method: 'GET',
-			url: path + '/api/selectUserByID.json'
+			url: path + '/api/selectUserByID.json?id='+id
 		}).then(function successCallback(response) {
-			$scope.users = response.data;
+			$scope.user = response.data;
 		}, function errorCallback(response) {
 			console.log(response.statusText);
 		});

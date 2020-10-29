@@ -3,29 +3,31 @@
     <h2 class="custom-input">Cập Nhật Sản Phẩm</h2>
   </div>
   <form ng-submit="UpdateProduct()" ng-init="findByID()">
+    <p class="text-success" ng-show="!{{displayMessenger}}">{{mesenger}}</p>
+    <p class="text-danger" ng-show="{{displayMessenger}}">{{mesenger}}</p>
     <div class="form-row">
       <div class="col-10 col-md-5 custom-input">
-        <input type="text" name="" class="form-control" value="{{products[0].productName}}" id="productName">
+        <input type="text" name="" class="form-control" value="{{product[0].productName}}" id="productName">
       </div>
       <div class="col-10 col-md-5 custom-input">
-        <input type="text" class="form-control" name="" value="{{products[0].price}}" id="price">
+        <input type="text" class="form-control" name="" value="{{product[0].price}}" id="price">
       </div>
       <div class="col-10 col-md-5 custom-input">
-        <input type="text" name="" class="form-control" value="{{products[0].category}}" id="category">
+        <input type="text" name="" class="form-control" value="{{product[0].category}}" id="category">
       </div>
       <div class="col-10 col-md-5 custom-input">
-        <input type="text" name="" class="form-control" value="{{products[0].note}}" id="note">
+        <input type="text" name="" class="form-control" value="{{product[0].note}}" id="note">
       </div>
       <div class="col-10 col-md-5 custom-input">
-        <input type="number" name="" class="form-control" value="{{products[0].quantity}}" id="quantity">
+        <input type="number" name="" class="form-control" value="{{product[0].quantity}}" id="quantity">
       </div>
       <div class="col-10 col-md-5 custom-input">
         <input type="file" name="" class="form-control" id="inputFile">
       </div>
       <div class="col-10 col-md-11 custom-input">
-        <textarea class="form-control" value="{{products[0].description}}" id="description"></textarea>
+        <textarea class="form-control" value="{{product[0].description}}" id="description"></textarea>
       </div>
-      <input type="hidden" name="" class="form-control" value="{{products[0].pictureProduct}}" id="pictureProduct">
+      <input type="hidden" name="" class="form-control" value="{{product[0].pictureProduct}}" id="pictureProduct">
       <div class="col-10 col-md-5 custom-input text-center">
         <input type="submit" name="" Value="Cập Nhập">
         <input type="reset" name="" Value="Mới">

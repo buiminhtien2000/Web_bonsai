@@ -6,7 +6,7 @@ header{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0px 100px;
+	padding: 0px 50px;
 	
     background-color: #7da918;
 	background-image: linear-gradient(30deg, #13547a 10% ,#43a00e 50%,#28ac44,#85FFBD);
@@ -40,6 +40,7 @@ header{
     justify-content: space-between;
 	padding: 2px 0;
 	border-bottom: 1px solid #e1e1e1;
+	width:100%;
 }
 .header-middle  {background-color: #f6faee;
 }

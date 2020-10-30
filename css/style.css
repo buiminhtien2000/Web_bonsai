@@ -7,6 +7,8 @@ body {
 	font-style: normal;
 	font-weight: normal;
 	overflow-x: hidden;
+	box-sizing: border-box;
+	margin: 0; padding: 0;
 }
 a {	color: #a4a4a4;
 	transition: 0.3s ease-in-out;
@@ -29,25 +31,6 @@ a, button, input {
 	color: #a5a5a5;
 }
 button:focus {	outline: none;}
-h1,h2,h3,h4,h5,h6 {
-	font-family: inherit;
-	font-weight: 700;
-	color: inherit;
-	line-height: 1.1;
-	margin-top: 0;
-}
-h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
-	color: inherit
-}
-h1 {
-	font-size: 35px;
-	font-weight: 500;
-}
-h2 {	font-size: 30px;}
-h3 {	font-size: 28px;}
-h4 {	font-size: 22px;}
-h5 {	font-size: 18px;}
-h6 {	font-size: 16px;}
 ul {
 	margin: 0px;
 	padding: 0px;
@@ -487,13 +470,10 @@ textarea:focus {
 .product-active:hover {
 	overflow: visible;
 }
-.product-area .owl-carousel .owl-item {
+.product-active .owl-carousel-2  {
 	padding: 25px 0;
-}
-.product-area .owl-carousel .owl-stage-outer {
-	margin: 0 0 -100px;
-	padding: 0 0 85px;
 	position: relative;
+	width: 250px;
 }
 /* 1.14 Scroll Up
 /*----------------------------------------*/

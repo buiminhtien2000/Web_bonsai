@@ -11,13 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="fonts/fontawesome-free-5.15.1-web/css/all.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/jquery-ui.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="fonts/fontawesome-free-5.15.1-web/css/all.min.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <link rel="stylesheet" href="css/csslogin.css">
     <script src="js/showForm.js"></script>
@@ -35,7 +35,7 @@
     <div class="col-12 col-md-8 col-lg-6 m-auto custom-form" id="customform">
         <!-- <div class="col text-center mb-2">
                 <img src="image/logo.png" />
-            </div> -->
+            </div>   -->
         <ul class="nav nav-tabs col m-auto" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#login">Đăng Nhập</a>
@@ -87,9 +87,6 @@
                         <input type="submit" value="Đăng Ký" class="mt-2 form-control"/>
                         <input type="button" onclick="hiddenForm()" value="Thoát" class="mt-2 mb-2 form-control" />
                     </div>
-                    <div class="col mt-2">
-                        <a href="#">Quên Mật Khẩu?</a>
-                    </div>
                 </form>
             </div>
         </div>
@@ -103,24 +100,6 @@
                     <div class="col-lg-6 col-md-4">
                         <div class="header-top-left">
                             <ul class="phone-wrap">
-                                <!-- <li
-                                        class="header__navbar-item header__navbar-item-has-qr header__navbar-item--separate">
-                                        Tải ứng dụng &nbsp; | &nbsp;
-                                        <div class="header__qr">
-                                            <a href="https://shopee.vn/web" title="tải ngay tại đây">
-                                                <img src="images/qrcode.png" alt="QR code" class="header__qr-img"></a>
-                                            <div class="header__qr-apps">
-                                                <a class="header__qr-link">
-                                                    <img src="images/ch_play.png" title="CH Play"
-                                                        class="header__qr-download-img">
-                                                </a>
-                                                <a class="header__qr-link">
-                                                    <img src="images/apstore.png" title="Appstore"
-                                                        class="header__qr-download-img">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li> -->
                                 <li class="header__navbar-item">
                                     <span>Kết nối</span>
                                     <a href="https://www.facebook.com/sendabonsai" title="Facebook">
@@ -168,7 +147,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-2">
-                        <div class="logo pb-sm-30 pb-xs-30">
+                        <div class="h-logo pb-sm-30 pb-xs-30">
                             <center>
                                 <a href="index.html">
                                     <img src="image/logo.png" width="85%" height="100px" alt="">
@@ -182,18 +161,16 @@
                                 <nav>
                                     <ul>
                                         <li class="dropdown-holder"><a href="index.html">Home</a> </li>
-                                        <li class="megamenu-holder"><a href="#">Products</a>
+                                        <li class="megamenu-holder"><a href="listProduct.html">Products</a>
                                             <ul class="megamenu hb-megamenu">
-                                                <li><a href="shop-list.html">Shop List</a></li>
-                                                <li><a href="single-product-gallery-left.html">Single Product Style</a>
+                                                <li><a href="listProduct.html">Shop List</a></li>
+                                                <li><a href="detail_SP.html">Single Product Style</a>
                                                 </li>
-                                                <li><a href="single-product.html">Single Products</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="about-us.html">About Us</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="#">Contact</a></li>
+                                        <li><a href="tranggt.html">About Us</a></li>
+                                        <li><a href="#">FAQ</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -301,14 +278,14 @@
                                     <h2>Sen vỉ mini</h2>
                                     <h3>Starting at <span>$340</span></h3>
                                     <div class="default-btn slide-btn">
-                                        <a class="links" href="shop-left-sidebar.html">Shopping Now</a>
+                                        <a class="links" href="cart.html">Shopping Now</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 text-center pt-xs-30">
+                <!-- <div class="col-lg-4 col-md-4 text-center pt-xs-30">
                     <div class="li-banner">
                         <a href="#">
                             <img src="images/banner/1_1.jpg" alt="">
@@ -319,12 +296,11 @@
                             <img src="images/banner/1_2.jpg" alt="">
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
     <div ng-view>
-
     </div>
     <footer>
         <div class="footer" style="margin-top: 100px;">
@@ -496,8 +472,8 @@
     <script src="js/vendor/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.meanmenu.min.js"></script>
-    <script src="js/slick.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
+    <script src="js/slick.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="js/jquery.mixitup.min.js"></script>
